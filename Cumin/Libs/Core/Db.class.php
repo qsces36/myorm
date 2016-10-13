@@ -17,22 +17,22 @@ class DB
     const DELETE = 4;
 
     //比较运算符
-    const WHERE_STR            = false;
-    const WHERE_CO_EQ          = '<=>';
-    const WHERE_CO_NEQ         = '<>';
-    const WHERE_CO_GT          = '>';
-    const WHERE_CO_EGT         = '>=';
-    const WHERE_CO_LT          = '<';
-    const WHERE_CO_ELT         = '<';
-    const WHERE_CO_LIKE        = 'LIKE';
-    const WHERE_CO_BETWEEN     = 'BETWEEN';
+    const WHERE_STR = false;
+    const WHERE_CO_EQ = '<=>';
+    const WHERE_CO_NEQ = '<>';
+    const WHERE_CO_GT = '>';
+    const WHERE_CO_EGT = '>=';
+    const WHERE_CO_LT = '<';
+    const WHERE_CO_ELT = '<';
+    const WHERE_CO_LIKE = 'LIKE';
+    const WHERE_CO_BETWEEN = 'BETWEEN';
     const WHERE_CO_NOT_BETWEEN = 'NOT BETWEEN';
-    const WHERE_CO_IN          = 'IN';
-    const WHERE_CO_NOT_IN      = 'NOT IN';
-    const WHERE_CO_REGEXP      = 'REGEXP';
+    const WHERE_CO_IN = 'IN';
+    const WHERE_CO_NOT_IN = 'NOT IN';
+    const WHERE_CO_REGEXP = 'REGEXP';
 
     //排序
-    const ORDER_ASC  = 'ASC';
+    const ORDER_ASC = 'ASC';
     const ORDER_DESC = 'DESC';
 
     /**
@@ -48,7 +48,7 @@ class DB
     //插入、更新数据
     private $data = [];
     //需要查询的数据段
-    private $field = '';
+    private $field = '*';
     //需要查询的表
     private $table = '';
     //查询条件
@@ -96,7 +96,7 @@ class DB
      *
      * @param null $config
      *
-     * @return Pdo
+     * @return DB
      */
     public static function M($config = null)
     {
@@ -218,7 +218,7 @@ class DB
         $this->_parseSql(self::INSERT);
 
         if ($this->_execute()) {
-            return self::$last_id;
+            return (int)self::$last_id;
         } else {
             return false;
         }

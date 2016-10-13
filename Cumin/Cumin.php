@@ -14,5 +14,5 @@ define('COMMON_PATH', CUMIN_PATH . '/Common/');
 define('CONF_PATH', CUMIN_PATH . '/Conf/');
 define('CORE_PATH', CUMIN_PATH . '/Core/');
 
-include CORE_PATH . 'Db.class.php';
-include CORE_PATH . 'AppException.class.php';
+include_once CORE_PATH . 'Db.class.php';
+include_once CORE_PATH . 'AppException.class.php';

@@ -7,7 +7,6 @@
  */
 namespace Cumin;
 include_once 'Cumin/Cumin.php';
-$t1 = microtime(true);
 
 $config = [
     'driver'   => 'mysql',
@@ -15,21 +14,16 @@ $config = [
     'host'     => '127.0.0.1',
     'port'     => '3306',
     'username' => 'root',
-    'password' => 'leney',
+    'password' => '',
     'charset'  => 'utf8',
 ];
+
 try {
     $result = DB::M($config)
-        ->field('name')
-        ->table('class')
-        ->count();
+        ->debug()
+        ->table('dd')
+        ->select();
 } catch (AppException $e) {
     echo $e->getMessage();
 }
-
-$t2 = microtime(true);
-
-echo '<pre>';
-echo $t2 - $t1 . PHP_EOL;
-
 var_dump($result);

@@ -30,7 +30,7 @@ class Pdo
         ],
     ];
 
-    private $last_id = null;
+    private $last_id = 0;
     private $row_count = 0;
 
     /**
@@ -157,8 +157,8 @@ class Pdo
 
             return false;
         }
-        $this->last_id   = $this->db->lastInsertId();
-        $this->row_count = $this->stmt->rowCount();
+        $this->last_id   = (int)$this->db->lastInsertId();
+        $this->row_count = (int)$this->stmt->rowCount();
 
         return true;
     }

@@ -13,12 +13,11 @@
  */
 function __autoload($className)
 {
-    var_dump($className);
     $classes  = explode('\\', $className);
     $argCount = count($classes);
     $files    = [];
     if ($argCount == 2) {
-        if ($classes[1] == 'DB') {
+        if ($classes[1] == 'Db') {
             $files[] = CUMIN_PATH . 'Classes/Db/' . $classes[1] . EXT;
         } else {
             $files[] = CUMIN_PATH . 'Classes/' . $classes[1] . EXT;
